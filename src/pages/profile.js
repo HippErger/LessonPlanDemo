@@ -7,6 +7,7 @@ import SubjectsThumbnail from '../components/subjectsThumbnail';
 
 class Profile extends Component {
   render() {
+    /*  @TODO will need to map over the data to create a thumbnail for each */
     return (
       <div>
         <Header />

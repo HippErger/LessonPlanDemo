@@ -8,6 +8,7 @@ class FollowingThumbnail extends Component {
         <h5>Subjects</h5>
         <h6>Years VAR </h6>
         <span>Followers</span>
+        &nbsp; &nbsp;
         <span>Avatar</span>
       </div>
     );
