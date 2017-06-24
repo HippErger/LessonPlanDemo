@@ -2,7 +2,13 @@ import React from 'react';
 
 function LessonHeader() {
   return (
-    <div> This is the lesson header component</div>
+    <div>
+        <button>copy</button>
+        &nbsp; &nbsp;
+        <button>add to</button>
+        &nbsp; &nbsp;
+        <button>like star</button>
+    </div>
   );
 }
 

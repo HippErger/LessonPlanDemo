@@ -3,6 +3,8 @@ import LessonHeader from '../components/lessonHeader';
 
 
 // @TODO add lesson header, like, addTo, copy
+// @TODO and when someone looks at their own lesss a side bar component with
+// share, edit, pdf convert, print, brag icons need to be added
 function LessonView() {
   return (
     <div>
