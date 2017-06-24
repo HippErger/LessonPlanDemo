@@ -4,7 +4,6 @@ import Header from '../components/header';
 import SubjectsThumbnail from '../components/subjectsThumbnail';
 
 
-
 class FanView extends Component {
   render() {
     //  @TODO will need to map over the number of classes & followings of the user

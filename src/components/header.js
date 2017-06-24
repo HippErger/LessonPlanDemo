@@ -15,6 +15,10 @@ function Header() {
       <Link href="/">
         <button>New Lesson</button>
       </Link>
+      &nbsp; &nbsp;
+      <Link href="/">
+        <button>Sign Out</button>
+      </Link>
     </div>
   );
 }
