@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Link from 'next/link';
 // import PropTypes from 'prop-types';
 
 class signUp extends Component {
@@ -50,6 +51,9 @@ class signUp extends Component {
           />
           <br />
           <br />
+          <Link href="/">
+            <button>Log In</button>
+          </Link>
         </form>
         <br/>
       </div>
