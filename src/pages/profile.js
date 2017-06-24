@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import Link from 'next/link';
-import Header from '../components/Header';
+import FollowingThumbnail from '../components/followingThumbnail';
+import Header from '../components/header';
 // import withRedux from 'next-redux-wrapper';
 
 class Profile extends Component {
@@ -8,6 +9,11 @@ class Profile extends Component {
     return (
       <div>
         <Header />
+        <div>My Lessons Div</div>
+        <div>
+          <h4>Following Div</h4>
+          <FollowingThumbnail />
+        </div>
       </div>
     );
   }
