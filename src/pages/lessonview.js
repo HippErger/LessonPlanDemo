@@ -1,22 +1,12 @@
 import React from 'react';
+import LessonHeader from '../components/lessonHeader';
 
-// // class LessonView extends Component
-// function Lessonview() {
-//   // render() {
-//     // @TODO add lesson header, like, addTo, copy
-//     return (
-//       <div>
-//         <h4><
-//       </div>
-//     );
-//   // }
-// }
-//
-// export default LessonView;
 
+// @TODO add lesson header, like, addTo, copy
 function LessonView() {
   return (
     <div>
+      <LessonHeader />
       <h2>Title: Miming</h2>
       <h4>TEKS:</h4>
       <p>
