@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import Header from '../components/header';
 
 function IndexPage() {
   return (
     <div>
-      <h1>
-        Hello World
-      </h1>
+      <Header />
       <Link href="/about">
         <a>About</a>
       </Link>
