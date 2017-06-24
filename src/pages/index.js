@@ -1,13 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
-import Header from '../components/header';
 
 function IndexPage() {
   return (
     <div>
-      <Header />
-      <Link href="/about">
-        <a>About</a>
+      <h3>SMEK</h3>
+      <form>
+        <input
+          type='text'
+          name='username'
+          placeholder='username'
+        />
+        <input
+          type='text'
+          name='password'
+          placeholder='password'
+        />
+      </form>
+      <Link href="/profile">
+        <button>Log In</button>
+      </Link>
+      <br />
+      <br />
+      <Link href="/signup">
+        <button>Not a member?</button>
       </Link>
     </div>
   );
