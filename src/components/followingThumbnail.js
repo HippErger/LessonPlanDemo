@@ -3,7 +3,13 @@ import React, {Component} from 'react';
 class FollowingThumbnail extends Component {
   render() {
     return (
-      <h6> this is the followingThumbnail Component</h6>
+      <div>
+        <h4>Username</h4>
+        <h5>Subjects</h5>
+        <h6>Years VAR </h6>
+        <span>Followers</span>
+        <span>Avatar</span>
+      </div>
     );
   }
 }
