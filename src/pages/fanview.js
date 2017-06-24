@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import FollowingThumbnail from '../components/followingThumbnail';
 import Header from '../components/header';
-import SubjectsThumbnail from '../components/subjectsThumbnail';
-
+import SubjectsLessonList from '../components/subjectsLessonList';
 
 class FanView extends Component {
   render() {
@@ -14,7 +13,7 @@ class FanView extends Component {
       <div>
         <Header />
         <h3>Name of followed Teacher</h3>
-          <SubjectsThumbnail />
+          <SubjectsLessonList />
           <hr />
           <h6>This will be aligned to the right with followingThumbnails</h6>
           <FollowingThumbnail />
