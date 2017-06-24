@@ -8,6 +8,8 @@ class FanView extends Component {
   render() {
     //  @TODO will need to map over the number of classes & followings of the user
     // has to create the thumbnail for each one.
+    // @TODO will also need to map over the number of lessons in a subject and
+    // create a thumbnail component to be clicked on for each lessson
     return (
       <div>
         <Header />
