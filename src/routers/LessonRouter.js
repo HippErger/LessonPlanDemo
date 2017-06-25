@@ -8,7 +8,7 @@ const teacherName = 'yonderWay';
 const subjectName = 'theatre1';
 const lessonNumber = '/:id';
 
-
+//  the data access should look something like this:
 // '/api/teachers/{name}/{class}/{lesson#}'
 
 router.post(LessonsPath, LessonController.create);
