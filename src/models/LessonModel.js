@@ -68,13 +68,13 @@ const LessonModel = mongoose.Schema({
   // Differentiation strategies: How will you support students who need extra help
   differentiation: {
     type: String,
-    maxlength: [ 10, 'Maximum character limit reached. Please try again.' ],
+    maxlength: [ 250, 'Maximum character limit reached. Please try again.' ],
     required: false
   },
   // Assessment: how will you know what students have learned?
   assessment: {
     type: String,
-    maxlength: [ 5, 'Maximum character limit reached. Please try again.' ],
+    maxlength: [ 500, 'Maximum character limit reached. Please try again.' ],
     required: true
   },
 });
@@ -92,6 +92,21 @@ hook
 instruction
 differentiation
 assessment
+
+To use in Postman
+
+"creator" : "something",
+"title" : "something",
+"subject" : "something",
+"teks" : "something",
+"materialsRequired" : "something",
+"summary" : "something",
+"timeEstimate" : "something",
+"learningGoal" : "something",
+"hook" : "something",
+"instruction" : "something",
+"differentiation" : "something",
+"assessment" : "something"
 */
 
 export default mongoose.model('Lessonplan', LessonModel);

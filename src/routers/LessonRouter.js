@@ -2,7 +2,7 @@ import express from 'express';
 import LessonController from '../controllers/LessonController';
 
 const router = express.Router();
-const LessonsPath = '/api/lessons';
+const LessonsPath = '/api/lessonplans';
 
 router.post(LessonsPath, LessonController.create);
 router.get(LessonsPath, LessonController.list);
