@@ -80,6 +80,10 @@ const LessonModel = mongoose.Schema({
 });
 
 /*
+
+Copy of datastructure,
+need to figure out how to build the structure so that each member has its own file
+
 creator
 title
 subject
