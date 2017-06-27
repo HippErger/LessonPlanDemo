@@ -54,9 +54,9 @@ followingTile.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    items: state.subjectTileReducer.items,
-    loading: state.subjectTileReducer.loading,
-    error: state.subjectTileReducer.error,
+    items: state.followingTilesReducer.items,
+    loading: state.followingTilesReducer.loading,
+    error: state.followingTilesReducer.error,
 
   };
 }

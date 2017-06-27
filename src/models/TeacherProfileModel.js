@@ -15,7 +15,7 @@ const teacherProfileModel = mongoose.Schema({
     type: Array,
   },
   years: {
-    type: Number,
+    type: String,
   },
   followers: {
     type: Number,

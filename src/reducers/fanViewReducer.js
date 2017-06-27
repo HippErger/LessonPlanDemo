@@ -27,7 +27,7 @@ function item(state = {}, action) {
     case LOAD_FANVIEW_SUCCESS:
       return action.receivedData;
     case LOAD_FANVIEW_FAILURE:
-      return [];
+      return {};
   }
   return state;
 }

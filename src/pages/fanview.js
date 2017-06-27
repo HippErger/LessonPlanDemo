@@ -18,6 +18,10 @@ class FanView extends Component {
   }
 
   render() {
+    /* eslint-disable no-unused-vars */
+    const {item, loading, error} = this.props;
+    console.log('from fanview page, props', item);
+
     //  @TODO will need to map over the number of classes & followings of the user
     // has to create the thumbnail for each one.
     // @TODO will also need to map over the number of lessons in a subject and
@@ -25,7 +29,7 @@ class FanView extends Component {
     return (
       <div>
         <Header />
-        <h3>Name of followed Teacher</h3>
+        <h3>the name{this.props.item.username}</h3>
           <hr />
           <h6>This will be aligned to the right with followingThumbnails</h6>
           <FollowingTile />
@@ -43,11 +47,13 @@ FanView.propTypes = {
 
 };
 
-// function mapStateToProps(state) {
-//   item: state.fanViewReducer.item;
-//   loading: state.fanViewReducer.loading;
-//   error: state.fanViewReducer.error;
-// }
+function mapStateToProps(state) {
+  return {
+    item: state.fanViewReducer.item,
+    loading: state.fanViewReducer.loading,
+    error: state.fanViewReducer.error,
+  };
+}
 
 /* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
@@ -59,4 +65,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(FanView);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(FanView);

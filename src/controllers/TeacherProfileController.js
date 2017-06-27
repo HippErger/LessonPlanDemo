@@ -1,4 +1,4 @@
-import TeacherProfile from '../models/teacherProfileModel';
+import TeacherProfile from '../models/TeacherProfileModel';
 
 const LessonController = {
   create: (request, response, next) => {
@@ -29,7 +29,7 @@ const LessonController = {
 
     TeacherProfile.findById(query)
       .then(data => {
-        console.log('Teacher DB, individual was requested,');
+        console.log('Teacher DB, individual was requested,', data);
         return response.json(data);
       })
       .catch(err => {

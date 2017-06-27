@@ -32,10 +32,10 @@ function items(state = [], action) {
   return state;
 }
 
-const subjectTileReducer = combineReducers({
+const followingTilesReducer = combineReducers({
   loading,
   error,
   items
 });
 
-export default subjectTileReducer;
+export default followingTilesReducer;

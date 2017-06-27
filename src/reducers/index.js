@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux';
 import lessonListReducer from './lessonListReducer';
-import subjectTileReducer from './subjectTileReducer';
+import followingTilesReducer from './followingTilesReducer';
 import profileReducer from './profileReducer';
 import fanViewReducer from './fanViewReducer';
 
 export default combineReducers({
   lessonListReducer,
-  subjectTileReducer,
+  followingTilesReducer,
   profileReducer,
   fanViewReducer,
-  
+
 });
