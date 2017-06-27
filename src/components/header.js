@@ -8,7 +8,7 @@ function Header() {
         <button>Avatar</button>
       </Link>
       &nbsp; &nbsp;
-      <Link href="/">
+      <Link href="/lessonslist">
         <button>Lessons</button>
       </Link>
       &nbsp; &nbsp;
