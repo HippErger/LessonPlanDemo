@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-
-/* eslint-disable no-unused-vars */
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
@@ -12,12 +10,12 @@ import {
 class lessonList extends Component {
   componentDidMount() {
     this.props.onMount();
-    console.log('lessonList did load!');
   }
 
   render() {
     return (
       <div>
+        <Header />
         <h3>This is the lesson list page </h3>
       </div>
     );
@@ -32,6 +30,7 @@ lessonList.propTypes = {
 function mapDispatchToProps(dispatch) {
   return {
     onMount: () => {
+      dispatch(loadLessonList());
       console.log('onMount, data was passed in lessonslist page');
     }
   };
@@ -42,3 +41,5 @@ export default withRedux(
   null,
   mapDispatchToProps
 )(lessonList);
+
+/* eslint-disable no-unused-vars */
