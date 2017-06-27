@@ -12,7 +12,7 @@ const teacherProfileModel = mongoose.Schema({
     minlength: [ 5, 'Choose a longer password.' ],
   },
   subjects: {
-    type: Object,
+    type: Array,
   },
   years: {
     type: Number,

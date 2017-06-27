@@ -5,8 +5,12 @@ import Header from '../components/header';
 import SubjectsThumbnail from '../components/subjectsThumbnail';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
+import PropTypes from 'prop-types';
 
 class Profile extends Component {
+  componentDidMount() {
+    this.props.onMount()
+  }
   render() {
     /*  @TODO will need to map over the data to create a thumbnail for each */
     return (
@@ -27,4 +31,18 @@ class Profile extends Component {
   }
 }
 
-export default withRedux(initStore, null, null)(Profile);
+Profile.propTypes = {
+  onMount: PropTypes.func.isRequired,
+
+};
+
+/* eslint-disable no-unused-vars */
+function mapDispatchToProps(dispatch) {
+  return {
+    onMount: () => {
+      console.log('Profile page has mounted');
+    }
+  };
+}
+
+export default withRedux(initStore, null, mapDispatchToProps)(Profile);

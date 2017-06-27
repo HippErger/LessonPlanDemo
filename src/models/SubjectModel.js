@@ -15,7 +15,7 @@ const SubjectModel = mongoose.Schema({
   },
   gradeLevel: {
     type: String,
-    maxlength: [ 10, 'Maximum character limit reached. Please try again.' ],
+    maxlength: [ 100, 'Maximum character limit reached. Please try again.' ],
     required: false
   },
   // quickly describe what the Subject covers and any notes, tips or hints that

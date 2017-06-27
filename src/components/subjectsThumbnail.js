@@ -14,6 +14,7 @@ class SubjectsThumbnail extends Component {
 
   render() {
     // @TODO will also need to map over the number of lessons in a subject and
+    /* eslint-disable no-unused-vars */
     // create a thumbnail component to be clicked on for each lessson
     // const instances =
 
@@ -34,6 +35,13 @@ SubjectsThumbnail.propTypes = {
   onMount: PropTypes.func.isRequired,
 
 };
+
+function mapStateToProps(state) {
+  items: state.subjectTileReducer.items;
+  loading: state.subjectTileReducer.loading;
+  error: state.subjectTileReducer.error;
+
+}
 
 /* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {

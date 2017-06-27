@@ -72,7 +72,7 @@ export function loadSubjectTile() {
       type: LOAD_SUBJECT_TILE
     });
 
-    fetch('/api/teachers/')
+    fetch('http://localhost:3001/collections/api/teachers')
     .then( result => {
       return result.json();
     })
