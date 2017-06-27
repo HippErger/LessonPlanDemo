@@ -17,17 +17,26 @@ class SubjectsThumbnail extends Component {
     /* eslint-disable no-unused-vars */
     // create a thumbnail component to be clicked on for each lessson
     const {items, loading, error} = this.props;
-    // const instances =
-    console.log('getting props', items);
+    const instances = items.map( instance => {
+      return (
+        <Link key={instance._id} href='/lessonview'>
+          <div >
+            <hr />
+            <h3>{instance.username}</h3>
+            
+            <h5>Followers: {instance.followers}</h5>
+            <h5>Following: {instance.following}</h5>
+            <h5>Years: {instance.years}</h5>
+            <hr />
+          </div>
+        </Link>
+      );
+    });
+
     return (
-      <Link href='/lessonview'>
         <div>
-          <h4>Class Name</h4>
-          <h6>34 Lessons</h6>
-          <h6>63 Likes</h6>
-          <h6>Last edit Sept7, 2017</h6>
+          {instances}
         </div>
-      </Link>
     );
   }
 }
