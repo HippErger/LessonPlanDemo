@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import Link from 'next/link';
 import {initStore} from '../store';
 import withRedux from 'next-redux-wrapper';
+import PropTypes from 'prop-types';
+import {
+  loadSubjectTile
+} from '../actions';
 
 class SubjectsThumbnail extends Component {
   componentDidMount() {
-    console.log('SubjectsThumbnail mounted');
+    this.props.onMount();
   }
 
   render() {
@@ -26,6 +30,20 @@ class SubjectsThumbnail extends Component {
   }
 }
 
+SubjectsThumbnail.propTypes = {
+  onMount: PropTypes.func.isRequired,
+
+};
+
+/* eslint-disable no-unused-vars */
+function mapDispatchToProps(dispatch) {
+  return {
+    onMount: () => {
+      dispatch(loadSubjectTile());
+    }
+  };
+}
 
 
-export default withRedux(initStore, null, null)(SubjectsThumbnail);
+
+export default withRedux(initStore, null, mapDispatchToProps)(SubjectsThumbnail);
