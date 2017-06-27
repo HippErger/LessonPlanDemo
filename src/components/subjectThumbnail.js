@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Link from 'next/link';
 
-class FollowingThumbnail extends Component {
+class subjectThumbnail extends Component {
   render() {
     return (
     <Link href="/fanview">
@@ -19,4 +19,4 @@ class FollowingThumbnail extends Component {
   }
 }
 
-export default FollowingThumbnail;
+export default subjectThumbnail;

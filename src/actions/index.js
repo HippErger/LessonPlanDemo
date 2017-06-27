@@ -14,6 +14,11 @@ import 'isomorphic-fetch';
 /* ///////////////////////////////////////////////////////////////////////////
                         Delete Lesson Details
 /////////////////////////////////////////////////////////////////////////// */
+
+
+/* ///////////////////////////////////////////////////////////////////////////
+                        Load Profile
+/////////////////////////////////////////////////////////////////////////// */
 export const LOAD_PROFILE = 'LOAD_PROFILE';
 export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS';
 export const LOAD_PROFILE_FAILURE = 'LOAD_PROFILE_FAILURE';
@@ -45,6 +50,46 @@ function loadProfileSuccess(receivedData) {
 }
 
 function loadProfileFailure(errorMessage) {
+  return {
+    type: LOAD_PROFILE_FAILURE,
+    errorMessage
+  };
+}
+
+/* ///////////////////////////////////////////////////////////////////////////
+                        Load FanView of Profile
+/////////////////////////////////////////////////////////////////////////// */
+export const LOAD_FANVIEW = 'LOAD_FANVIEW';
+export const LOAD_FANVIEW_SUCCESS = 'LOAD_FANVIEW_SUCCESS';
+export const LOAD_FANVIEW_FAILURE = 'LOAD_FANVIEW_FAILURE';
+
+export function loadFanViewProfile(id) {
+  return dispatch => {
+    dispatch({
+      type: LOAD_PROFILE,
+    });
+
+    fetch('/api/teachers/' + id)
+    .then(result => {
+      result.json();
+    })
+    .then(data => {
+      loadFanViewProfileSuccess(data);
+    })
+    .catch(err => {
+      loadFanViewProfileFailure(err.message);
+    });
+  };
+}
+
+function loadFanViewProfileSuccess(receivedData) {
+  return {
+    type: LOAD_PROFILE_SUCCESS,
+    receivedData
+  };
+}
+
+function loadFanViewProfileFailure(errorMessage) {
   return {
     type: LOAD_PROFILE_FAILURE,
     errorMessage

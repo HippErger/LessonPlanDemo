@@ -7,7 +7,7 @@ import {
   loadSubjectTile
 } from '../actions';
 
-class SubjectsThumbnail extends Component {
+class followingTile extends Component {
   componentDidMount() {
     this.props.onMount();
   }
@@ -19,11 +19,14 @@ class SubjectsThumbnail extends Component {
     const {items, loading, error} = this.props;
     const instances = items.map( instance => {
       return (
-        <Link key={instance._id} href='/lessonview'>
+        <Link
+        key={instance._id}
+        href={{pathname: '/fanview',
+          query: {_id: instance._id}}}>
           <div >
             <hr />
             <h3>{instance.username}</h3>
-            
+            <h5>Lessons: 8 </h5>
             <h5>Followers: {instance.followers}</h5>
             <h5>Following: {instance.following}</h5>
             <h5>Years: {instance.years}</h5>
@@ -41,7 +44,7 @@ class SubjectsThumbnail extends Component {
   }
 }
 
-SubjectsThumbnail.propTypes = {
+followingTile.propTypes = {
   onMount: PropTypes.func.isRequired,
   items: PropTypes.array,
   loading: PropTypes.bool.isRequired,
@@ -65,5 +68,13 @@ function mapDispatchToProps(dispatch) {
     }
   };
 }
+/* <h5> Total Lesson Plans:
+  {
+     +
+    instance.subject[1].length +
+    instance.subject[2].length +
+    instance.subject[3].length
+  }
+  </h5>*/
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(SubjectsThumbnail);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(followingTile);

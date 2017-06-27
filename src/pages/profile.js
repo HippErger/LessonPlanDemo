@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 // import Link from 'next/link';
-import FollowingThumbnail from '../components/followingThumbnail';
+// import FollowingThumbnail from '../components/followingThumbnail';
 import Header from '../components/header';
-import SubjectsThumbnail from '../components/subjectsThumbnail';
+import FollowingTile from '../components/followingTile';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
@@ -21,12 +21,12 @@ class Profile extends Component {
         <Header />
         <hr />
         <div>
-          <SubjectsThumbnail />
+          <FollowingTile />
         </div>
         <hr />
         <div>
           <h4>Following Div</h4>
-          <FollowingThumbnail />
+
         </div>
         <hr />
       </div>
