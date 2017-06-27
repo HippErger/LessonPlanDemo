@@ -4,7 +4,7 @@ import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
 import Header from '../components/header';
-import Prompt from 'react-bootstrap-prompt';
+// import Prompt from 'react-bootstrap-prompt';
 import {
   loadLessonList,
 } from '../actions';
@@ -17,16 +17,16 @@ class lessonList extends Component {
   render() {
     const {items} = this.props;
 
-    const confirmDelete = () => {
-      Prompt.Actions
-        .show('do you really want to delete lesson TITLE?')
-        .then(() => {
-          console.log('delete confirm was clicked');
-        })
-        .catch(() => {
-          console.log('catch was caught');
-        });
-    };
+    // const confirmDelete = () => {
+    //   Prompt.Actions
+    //     .show('do you really want to delete lesson TITLE?')
+    //     .then(() => {
+    //       console.log('delete confirm was clicked');
+    //     })
+    //     .catch(() => {
+    //       console.log('catch was caught');
+    //     });
+    // };
 
     const instances = items.map( instance => {
       return (
@@ -42,9 +42,7 @@ class lessonList extends Component {
             </button>
           </Link>
           &nbsp; &nbsp;
-          <button onClick={ () => {
-            confirmDelete(this);
-          }} >
+          <button onClick={ () => {this.props.deleteItem(instance._id);}} >
             Delete
           </button>
           &nbsp; &nbsp;
