@@ -6,10 +6,13 @@ import SubjectsThumbnail from '../components/subjectsThumbnail';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
+import {
+  loadProfile
+} from '../actions';
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.onMount()
+    this.props.onMount();
   }
   render() {
     /*  @TODO will need to map over the data to create a thumbnail for each */
@@ -36,13 +39,21 @@ Profile.propTypes = {
 
 };
 
+function mapStateToProps(state) {
+  return {
+    items: state.profileReducer.items,
+    loading: state.profileReducer.loading,
+    error: state.profileReducer.error,
+  };
+}
+
 /* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
   return {
     onMount: () => {
-      console.log('Profile page has mounted');
+      dispatch(loadProfile());
     }
   };
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(Profile);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(Profile);

@@ -12,6 +12,47 @@ import 'isomorphic-fetch';
 
 
 /* ///////////////////////////////////////////////////////////////////////////
+                        Delete Lesson Details
+/////////////////////////////////////////////////////////////////////////// */
+export const LOAD_PROFILE = 'LOAD_PROFILE';
+export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS';
+export const LOAD_PROFILE_FAILURE = 'LOAD_PROFILE_FAILURE';
+
+export function loadProfile() {
+  return dispatch => {
+    dispatch({
+      type: LOAD_PROFILE,
+    });
+    
+    fetch('/api/teachers')
+    .then(result => {
+      result.json();
+    })
+    .then(data => {
+      loadProfileSuccess(data);
+    })
+    .catch(err => {
+      loadProfileFailure(err.message);
+    });
+  };
+}
+
+function loadProfileSuccess(receivedData) {
+  return {
+    type: LOAD_PROFILE_SUCCESS,
+    receivedData
+  };
+}
+
+function loadProfileFailure(errorMessage) {
+  return {
+    type: LOAD_PROFILE_FAILURE,
+    errorMessage
+  };
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////
                         Load One Lesson Details
 /////////////////////////////////////////////////////////////////////////// */
 export const LOAD_ONE_LESSON = 'LOAD_ONE_LESSON';

@@ -3,7 +3,7 @@ import TeacherProfileController from '../controllers/TeacherProfileController';
 
 const router = express.Router();
 /* eslint-disable no-unused-vars */
-const TeacherProfilesPath = '/api/teacher';
+const TeacherProfilesPath = '/api/teachers';
 // const teacherName = 'yonderWay';
 // const subjectName = 'theatre1';
 // const TeacherProfileNumber = '/:id';
