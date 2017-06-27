@@ -16,8 +16,9 @@ class SubjectsThumbnail extends Component {
     // @TODO will also need to map over the number of lessons in a subject and
     /* eslint-disable no-unused-vars */
     // create a thumbnail component to be clicked on for each lessson
+    const {items, loading, error} = this.props;
     // const instances =
-
+    console.log('getting props', items);
     return (
       <Link href='/lessonview'>
         <div>
@@ -33,17 +34,21 @@ class SubjectsThumbnail extends Component {
 
 SubjectsThumbnail.propTypes = {
   onMount: PropTypes.func.isRequired,
+  items: PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool,
 
 };
 
 function mapStateToProps(state) {
-  items: state.subjectTileReducer.items;
-  loading: state.subjectTileReducer.loading;
-  error: state.subjectTileReducer.error;
+  return {
+    items: state.subjectTileReducer.items,
+    loading: state.subjectTileReducer.loading,
+    error: state.subjectTileReducer.error,
 
+  };
 }
 
-/* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
   return {
     onMount: () => {
@@ -52,6 +57,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
-
-export default withRedux(initStore, null, mapDispatchToProps)(SubjectsThumbnail);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(SubjectsThumbnail);

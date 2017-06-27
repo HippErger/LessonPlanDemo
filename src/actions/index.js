@@ -23,7 +23,7 @@ export function loadProfile() {
     dispatch({
       type: LOAD_PROFILE,
     });
-    
+
     fetch('/api/teachers')
     .then(result => {
       result.json();
@@ -113,7 +113,7 @@ export function loadSubjectTile() {
       type: LOAD_SUBJECT_TILE
     });
 
-    fetch('http://localhost:3001/collections/api/teachers')
+    fetch('/api/teachers')
     .then( result => {
       return result.json();
     })
