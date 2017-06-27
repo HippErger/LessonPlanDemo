@@ -79,6 +79,8 @@ const LessonModel = mongoose.Schema({
   },
 });
 
+export default mongoose.model('Lessonplan', LessonModel);
+
 /*
 
 Copy of datastructure,
@@ -112,5 +114,3 @@ To use in Postman
 "differentiation" : "something",
 "assessment" : "something"
 */
-
-export default mongoose.model('Lessonplan', LessonModel);

@@ -67,7 +67,22 @@ export const LOAD_SUBJECT_TILE_SUCCESS = 'LOAD_SUBJECT_TILE_SUCCESS';
 export const LOAD_SUBJECT_TILE_FAILURE = 'LOAD_SUBJECT_TILE_FAILURE';
 
 export function loadSubjectTile() {
-  return console.log('actionjs is receiving dispatch, 67');
+  return dispatch => {
+    dispatch({
+      type: LOAD_SUBJECT_TILE
+    });
+
+    fetch('/api/teachers/')
+    .then( result => {
+      return result.json();
+    })
+    .then(data => {
+      dispatch(loadSubjectTileSuccess(data));
+    })
+    .catch( err => {
+      dispatch(loadSubjectTileFailure(err.message));
+    });
+  };
 }
 
 function loadSubjectTileSuccess(receivedData) {

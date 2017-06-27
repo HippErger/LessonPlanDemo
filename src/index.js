@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import LessonRouter from './routers/LessonRouter';
+import SubjectRouter from './routers/SubjectRouter';
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
@@ -29,6 +30,7 @@ nextApp.prepare().then(() => {
   // All backend handlers
   app.use(bodyParser.json());
   app.use(LessonRouter);
+  app.use(SubjectRouter);
 
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {
