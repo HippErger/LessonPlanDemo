@@ -11,6 +11,7 @@ import {
 
 class lessonList extends Component {
   componentDidMount() {
+    this.props.onMount();
     console.log('lessonList did load!');
   }
 
@@ -23,11 +24,21 @@ class lessonList extends Component {
   }
 }
 
+lessonList.propTypes = {
+  onMount: PropTypes.func.isRequired,
 
-export default lessonList;
+};
 
-// export default withRedux(
-//   initStore,
-//   null,
-//   null
-// )(lessonList);
+function mapDispatchToProps(dispatch) {
+  return {
+    onMount: () => {
+      console.log('onMount, data was passed in lessonslist page');
+    }
+  };
+}
+
+export default withRedux(
+  initStore,
+  null,
+  mapDispatchToProps
+)(lessonList);
