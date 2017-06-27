@@ -27,6 +27,14 @@ lessonList.propTypes = {
 
 };
 
+function mapStateToProps(state) {
+  return {
+    loading: state.lessonListReducer.loading,
+    error: state.lessonListReducer.error,
+    items: state.lessonListReducer.items
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     onMount: () => {
@@ -38,7 +46,7 @@ function mapDispatchToProps(dispatch) {
 
 export default withRedux(
   initStore,
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(lessonList);
 

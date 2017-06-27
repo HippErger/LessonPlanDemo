@@ -31,25 +31,23 @@ export const LOAD_LESSON_LIST_SUCCESS = 'LOAD_LESSON_LIST_SUCCESS';
 export const LOAD_LESSON_LIST_FAILURE = 'LOAD_LESSON_LIST_FAILURE';
 
 export function loadLessonList() {
-  return console.log('actionsjs is receiving the call from lessonpage');
+  return dispatch => {
+    dispatch({
+      type: LOAD_LESSON_LIST,
+    });
 
-  // dispatch => {
-  //   dispatch({
-  //     type: LOAD_LESSON_LIST,
-  //   });
-  //
-  //   fetch('/api/lessonplans')
-  //   .then(result => {
-  //     return result.json();
-  //   })
-  //   .then(data => {
-  //     dispatch(loadLessonListSuccess(data));
-  //   })
-  //   .catch(err => {
-  //     dispatch(loadLessonListFailure(err.message));
-  //     // add in next();
-  //   });
-  // };
+    fetch('/api/lessonplans')
+    .then(result => {
+      return result.json();
+    })
+    .then(data => {
+      dispatch(loadLessonListSuccess(data));
+    })
+    .catch(err => {
+      dispatch(loadLessonListFailure(err.message));
+      // add in next();
+    });
+  };
 }
 
 function loadLessonListSuccess(receivedData) {
