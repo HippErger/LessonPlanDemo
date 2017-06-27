@@ -5,6 +5,9 @@ import Header from '../components/header';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
+import {
+  loadFanViewProfile
+} from '../actions';
 
 class FanView extends Component {
 
@@ -51,6 +54,7 @@ function mapDispatchToProps(dispatch) {
   return {
     getProfile: profileID => {
       console.log('got request for profile id:', profileID);
+      dispatch(loadFanViewProfile(profileID));
     }
   };
 }

@@ -64,22 +64,24 @@ export const LOAD_FANVIEW_SUCCESS = 'LOAD_FANVIEW_SUCCESS';
 export const LOAD_FANVIEW_FAILURE = 'LOAD_FANVIEW_FAILURE';
 
 export function loadFanViewProfile(id) {
-  return dispatch => {
-    dispatch({
-      type: LOAD_PROFILE,
-    });
+  return console.log('receivedData from dispatch', id);
 
-    fetch('/api/teachers/' + id)
-    .then(result => {
-      result.json();
-    })
-    .then(data => {
-      loadFanViewProfileSuccess(data);
-    })
-    .catch(err => {
-      loadFanViewProfileFailure(err.message);
-    });
-  };
+  // dispatch => {
+  //   dispatch({
+  //     type: LOAD_PROFILE,
+  //   });
+  //
+  //   fetch('/api/teachers/' + id)
+  //   .then(result => {
+  //     result.json();
+  //   })
+  //   .then(data => {
+  //     loadFanViewProfileSuccess(data);
+  //   })
+  //   .catch(err => {
+  //     loadFanViewProfileFailure(err.message);
+  //   });
+  // };
 }
 
 function loadFanViewProfileSuccess(receivedData) {
