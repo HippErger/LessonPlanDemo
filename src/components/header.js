@@ -9,7 +9,7 @@ function Header() {
       </Link>
       &nbsp; &nbsp;
       <Link href="/lessonslist">
-        <button>Lessons</button>
+        <button>My Lessons</button>
       </Link>
       &nbsp; &nbsp;
       <Link href="/">

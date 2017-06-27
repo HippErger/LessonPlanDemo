@@ -13,10 +13,24 @@ class lessonList extends Component {
   }
 
   render() {
+    const {items} = this.props;
+
+    const instances = items.map( instance => {
+      return (
+        <div key={instance._id}>
+          <hr />
+          <h3>{instance.title}</h3>
+          <p>{instance.summary}</p>
+          <hr />
+        </div>
+      );
+    });
+
     return (
       <div>
         <Header />
         <h3>This is the lesson list page </h3>
+        {instances}
       </div>
     );
   }
@@ -24,6 +38,7 @@ class lessonList extends Component {
 
 lessonList.propTypes = {
   onMount: PropTypes.func.isRequired,
+  items: PropTypes.array.isRequired,
 
 };
 
@@ -39,7 +54,6 @@ function mapDispatchToProps(dispatch) {
   return {
     onMount: () => {
       dispatch(loadLessonList());
-      console.log('onMount, data was passed in lessonslist page');
     }
   };
 }
