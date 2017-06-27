@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
 import Link from 'next/link';
+import {initStore} from '../store';
+import withRedux from 'next-redux-wrapper';
 
 class SubjectsThumbnail extends Component {
+  componentDidMount() {
+    console.log('SubjectsThumbnail mounted');
+  }
+
   render() {
     // @TODO will also need to map over the number of lessons in a subject and
     // create a thumbnail component to be clicked on for each lessson
+    // const instances =
+
     return (
       <Link href='/lessonview'>
         <div>
@@ -18,4 +26,6 @@ class SubjectsThumbnail extends Component {
   }
 }
 
-export default SubjectsThumbnail;
+
+
+export default withRedux(initStore, null, null)(SubjectsThumbnail);

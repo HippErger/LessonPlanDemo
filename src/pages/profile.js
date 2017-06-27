@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import FollowingThumbnail from '../components/followingThumbnail';
 import Header from '../components/header';
 import SubjectsThumbnail from '../components/subjectsThumbnail';
-// import withRedux from 'next-redux-wrapper';
+import withRedux from 'next-redux-wrapper';
+import {initStore} from '../store';
 
 class Profile extends Component {
   render() {
@@ -26,4 +27,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default withRedux(initStore, null, null)(Profile);
