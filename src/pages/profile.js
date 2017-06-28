@@ -11,11 +11,16 @@ import {
 } from '../actions';
 
 class Profile extends Component {
+  // @TODO this is hard coded for now but will need to figure how to pass this
+  // id into the component on sign-in
   componentDidMount() {
-    this.props.onMount();
+    this.props.getProfile('59526f7b403e1551a0c6f73c');
   }
+
   render() {
-    /*  @TODO will need to map over the data to create a thumbnail for each */
+    /* eslint-disable no-unused-vars */
+    const {item, loading, error} = this.props;
+    console.log('this is from the profile page', item);
     return (
       <div>
         <Header />
@@ -23,35 +28,32 @@ class Profile extends Component {
         <div>
           <FollowingTile />
         </div>
-        <hr />
-        <div>
-          <h4>Following Div</h4>
-
-        </div>
-        <hr />
       </div>
     );
   }
 }
 
 Profile.propTypes = {
-  onMount: PropTypes.func.isRequired,
+  getProfile: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool,
 
 };
 
 function mapStateToProps(state) {
   return {
-    items: state.profileReducer.items,
+    item: state.profileReducer.item,
     loading: state.profileReducer.loading,
     error: state.profileReducer.error,
   };
 }
 
-/* eslint-disable no-unused-vars */
 function mapDispatchToProps(dispatch) {
   return {
-    onMount: () => {
-      dispatch(loadProfile());
+    getProfile: id => {
+      console.log('from profile page57', id);
+      dispatch(loadProfile(id));
     }
   };
 }

@@ -29,7 +29,9 @@ class FanView extends Component {
     return (
       <div>
         <Header />
-        <h3>the name{this.props.item.username}</h3>
+        <h3>{this.props.item.username}</h3>
+          <hr />
+          <h6>Add in the subjects the teacher teaches</h6>
           <hr />
           <h6>This will be aligned to the right with followingThumbnails</h6>
           <FollowingTile />

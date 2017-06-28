@@ -17,17 +17,18 @@ function loading(state = false, action) {
 }
 
 /* eslint-disable no-unused-vars */
-// maybe need to do something with action here: + action.message
+// @TODO maybe need to do something with action here: + action.message
 function error(state = null, action) {
   return state;
 }
 
-function items(state = [], action) {
+function item(state = {}, action) {
+  console.log('profileReducer,26 is undefined so far', action.receivedData);
   switch (action.type) {
     case LOAD_PROFILE_SUCCESS:
       return action.receivedData;
     case LOAD_PROFILE_FAILURE:
-      return [];
+      return {};
   }
   return state;
 }
@@ -35,7 +36,7 @@ function items(state = [], action) {
 const profileReducer = combineReducers({
   loading,
   error,
-  items
+  item
 });
 
 export default profileReducer;

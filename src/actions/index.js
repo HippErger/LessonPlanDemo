@@ -23,26 +23,30 @@ export const LOAD_PROFILE = 'LOAD_PROFILE';
 export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS';
 export const LOAD_PROFILE_FAILURE = 'LOAD_PROFILE_FAILURE';
 
-export function loadProfile() {
+export function loadProfile(id) {
   return dispatch => {
     dispatch({
       type: LOAD_PROFILE,
     });
 
-    fetch('/api/teachers')
+    fetch('/api/teachers/' + id, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}
+    })
     .then(result => {
-      result.json();
+      return result.json();
     })
     .then(data => {
-      loadProfileSuccess(data);
+      dispatch(loadProfileSuccess(data));
     })
     .catch(err => {
-      loadProfileFailure(err.message);
+      dispatch(loadProfileFailure(err.message));
     });
   };
 }
 
 function loadProfileSuccess(receivedData) {
+  console.log('actions loadProfile,49', receivedData);
   return {
     type: LOAD_PROFILE_SUCCESS,
     receivedData
