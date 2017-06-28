@@ -5,6 +5,8 @@ import Header from '../components/header';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
+import SubjectThumbnail from '../components/subjectThumbnail';
+
 import {
   loadFanViewProfile
 } from '../actions';
@@ -29,11 +31,13 @@ class FanView extends Component {
     return (
       <div>
         <Header />
-        <h3>{this.props.item.username}</h3>
+        <h3>you&apos;re viewing lessons by: {this.props.item.username}</h3>
           <hr />
-          <h6>Add in the subjects the teacher teaches</h6>
+          <h6>Subjects thumbnail section</h6>
+          <SubjectThumbnail user={item} />
           <hr />
           <h6>This will be aligned to the right with followingThumbnails</h6>
+          <h5>Check out who {item.username} is following</h5>
           <FollowingTiles />
       </div>
     );

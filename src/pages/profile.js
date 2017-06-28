@@ -27,6 +27,7 @@ class Profile extends Component {
         <hr />
         <h3>Welcome, {item.username}</h3>
         <div>
+          <h5>Who you&apos;r following</h5>
           <FollowingTiles />
         </div>
       </div>

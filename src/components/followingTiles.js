@@ -39,7 +39,6 @@ class FollowingTiles extends Component {
     return (
         <div>
           <hr />
-          <h4>Who you&apos;re following:</h4>
           {instances}
         </div>
     );
