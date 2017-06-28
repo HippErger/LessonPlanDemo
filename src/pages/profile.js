@@ -20,14 +20,14 @@ class Profile extends Component {
   render() {
     /* eslint-disable no-unused-vars */
     const {item, loading, error} = this.props;
-    console.log('this is from the profile page', item);
+    console.log('this is from the profile page, 23', item);
     return (
       <div>
         <Header />
         <hr />
         <h3>Welcome, {item.username}</h3>
         <div>
-          <h5>Who you&apos;r following</h5>
+          <h5>Who you&apos;re following</h5>
           <FollowingTiles />
         </div>
       </div>

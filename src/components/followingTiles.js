@@ -13,10 +13,12 @@ class FollowingTiles extends Component {
   }
 
   render() {
+    console.log('from followinTiles, 16');
     // @TODO will also need to map over the number of lessons in a subject and
     /* eslint-disable no-unused-vars */
     // create a thumbnail component to be clicked on for each lessson
     const {items, loading, error} = this.props;
+    console.log('from followinTiles, 21', items);
     const instances = items.map( instance => {
       return (
         <Link
