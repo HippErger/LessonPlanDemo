@@ -9,14 +9,20 @@ import {
   loadLessonList,
 } from '../actions';
 
+
+// Flavius id is 59526f7b403e1551a0c6f73c
+
 class lessonList extends Component {
+  PROFILE_ID = this.props.url.query._id;
+
   componentDidMount() {
-    this.props.onMount();
+    this.props.onMount(this.PROFILE_ID);
   }
 
-  render() {
-    const {items} = this.props;
 
+  render() {
+    const {item} = this.props;
+    console.log('from lessonlist page, 22', item.subjects);
     // const confirmDelete = () => {
     //   Prompt.Actions
     //     .show('do you really want to delete lesson TITLE?')
@@ -27,30 +33,21 @@ class lessonList extends Component {
     //       console.log('catch was caught');
     //     });
     // };
+    const subjectArray = item.subjects;
+    console.log('from lesssonlist page, 34', subjectArray);
+    console.log('from lessonlistpage, 35', Object.keys(subjectArray));
 
-    const instances = items.map( instance => {
+    // in this map over I need to map over each of the lessons and create a component for them
+    const instancesOfSubjects = subjectArray.map( (instance, index) => {
       return (
-        <div key={instance._id}>
+        <div key={index}>
           <hr />
           <h3>{instance.title}</h3>
-          <p>{instance.summary}</p>
           <Link
             href={{pathname: '/lessonview',
               query: {_id: instance._id}}} >
             <button>
-              See Lesson
-            </button>
-          </Link>
-          &nbsp; &nbsp;
-          <button onClick={ () => {this.props.deleteItem(instance._id);}} >
-            Delete
-          </button>
-          &nbsp; &nbsp;
-          <Link
-            href={{pathname: '/',
-              query: {_id: instance._id}}}>
-            <button>
-              Edit Details
+              See All Lessons
             </button>
           </Link>
           <hr />
@@ -62,7 +59,7 @@ class lessonList extends Component {
       <div>
         <Header />
         <h3>This is the lesson list page </h3>
-        {instances}
+        {instancesOfSubjects}
       </div>
     );
   }
@@ -71,7 +68,8 @@ class lessonList extends Component {
 lessonList.propTypes = {
   onMount: PropTypes.func.isRequired,
   deleteItem: PropTypes.func.isRequired,
-  items: PropTypes.array.isRequired,
+  item: PropTypes.array.isRequired,
+  url: PropTypes.object.isRequired,
 
 };
 
@@ -79,14 +77,14 @@ function mapStateToProps(state) {
   return {
     loading: state.lessonListReducer.loading,
     error: state.lessonListReducer.error,
-    items: state.lessonListReducer.items
+    item: state.lessonListReducer.item
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onMount: () => {
-      dispatch(loadLessonList());
+    onMount: id => {
+      dispatch(loadLessonList(id));
     },
     deleteItem: itemID => {
       console.log('delete button on' , itemID, 'was clicked');

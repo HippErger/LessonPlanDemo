@@ -23,7 +23,6 @@ function error(state = null, action) {
 }
 
 function item(state = {}, action) {
-  console.log('profileReducer,26 is undefined so far', action.receivedData);
   switch (action.type) {
     case LOAD_PROFILE_SUCCESS:
       return action.receivedData;

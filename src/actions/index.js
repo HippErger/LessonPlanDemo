@@ -46,7 +46,6 @@ export function loadProfile(id) {
 }
 
 function loadProfileSuccess(receivedData) {
-  console.log('actions loadProfile,49', receivedData);
   return {
     type: LOAD_PROFILE_SUCCESS,
     receivedData
@@ -120,13 +119,13 @@ export const LOAD_LESSON_LIST = 'LOAD_LESSON_LIST';
 export const LOAD_LESSON_LIST_SUCCESS = 'LOAD_LESSON_LIST_SUCCESS';
 export const LOAD_LESSON_LIST_FAILURE = 'LOAD_LESSON_LIST_FAILURE';
 
-export function loadLessonList() {
+export function loadLessonList(id) {
   return dispatch => {
     dispatch({
       type: LOAD_LESSON_LIST,
     });
 
-    fetch('/api/lessonplans')
+    fetch('/api/teachers/' + id)
     .then(result => {
       return result.json();
     })

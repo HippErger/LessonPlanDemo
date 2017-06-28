@@ -7,7 +7,7 @@ import {
   loadSubjectTile
 } from '../actions';
 
-class followingTile extends Component {
+class FollowingTiles extends Component {
   componentDidMount() {
     this.props.onMount();
   }
@@ -38,13 +38,15 @@ class followingTile extends Component {
 
     return (
         <div>
+          <hr />
+          <h4>Who you&apos;re following:</h4>
           {instances}
         </div>
     );
   }
 }
 
-followingTile.propTypes = {
+FollowingTiles.propTypes = {
   onMount: PropTypes.func.isRequired,
   items: PropTypes.array,
   loading: PropTypes.bool.isRequired,
@@ -70,11 +72,10 @@ function mapDispatchToProps(dispatch) {
 }
 /* <h5> Total Lesson Plans:
   {
-     +
     instance.subject[1].length +
     instance.subject[2].length +
     instance.subject[3].length
   }
   </h5>*/
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(followingTile);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(FollowingTiles);

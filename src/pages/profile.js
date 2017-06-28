@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 // import Link from 'next/link';
 // import FollowingThumbnail from '../components/followingThumbnail';
 import Header from '../components/header';
-import FollowingTile from '../components/followingTile';
+import FollowingTiles from '../components/followingTiles';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../store';
 import PropTypes from 'prop-types';
@@ -25,8 +25,9 @@ class Profile extends Component {
       <div>
         <Header />
         <hr />
+        <h3>Welcome, {item.username}</h3>
         <div>
-          <FollowingTile />
+          <FollowingTiles />
         </div>
       </div>
     );
@@ -52,7 +53,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getProfile: id => {
-      console.log('from profile page57', id);
       dispatch(loadProfile(id));
     }
   };

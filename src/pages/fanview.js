@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FollowingTile from '../components/followingTile';
+import FollowingTiles from '../components/followingTiles';
 import Header from '../components/header';
 // import SubjectsLessonList from '../components/subjectsLessonList';
 import withRedux from 'next-redux-wrapper';
@@ -34,7 +34,7 @@ class FanView extends Component {
           <h6>Add in the subjects the teacher teaches</h6>
           <hr />
           <h6>This will be aligned to the right with followingThumbnails</h6>
-          <FollowingTile />
+          <FollowingTiles />
       </div>
     );
   }

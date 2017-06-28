@@ -22,12 +22,12 @@ function error(state = null, action) {
   return state;
 }
 
-function items(state = [], action) {
+function item(state = {}, action) {
   switch (action.type) {
     case LOAD_LESSON_LIST_SUCCESS:
       return action.receivedData;
     case LOAD_LESSON_LIST_FAILURE:
-      return [];
+      return {};
   }
   return state;
 }
@@ -35,7 +35,7 @@ function items(state = [], action) {
 const lessonListReducer = combineReducers({
   loading,
   error,
-  items
+  item
 });
 
 export default lessonListReducer;
